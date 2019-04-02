@@ -25,13 +25,13 @@ The preferred way to install this extension is through [composer](http://getcomp
 Either run
 
 ```
-composer require --prefer-dist yiisoft/yii2-authclient
+composer require --prefer-dist vityachis/yii2-authclient
 ```
 
 or add
 
 ```json
-"yiisoft/yii2-authclient": "~2.1.0"
+"vityachis/yii2-authclient": "~2.1.0"
 ```
 
 to the `require` section of your composer.json.
