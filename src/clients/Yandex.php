@@ -5,9 +5,9 @@
  * @license http://www.yiiframework.com/license/
  */
 
-namespace yii\authclient\clients;
+namespace vityachis\authclient\clients;
 
-use yii\authclient\OAuth2;
+use vityachis\authclient\OAuth2;
 
 /**
  * Yandex allows authentication via Yandex OAuth.
@@ -19,10 +19,10 @@ use yii\authclient\OAuth2;
  * ```php
  * 'components' => [
  *     'authClientCollection' => [
- *         'class' => 'yii\authclient\Collection',
+ *         'class' => 'vityachis\authclient\Collection',
  *         'clients' => [
  *             'yandex' => [
- *                 'class' => 'yii\authclient\clients\Yandex',
+ *                 'class' => 'vityachis\authclient\clients\Yandex',
  *                 'clientId' => 'yandex_client_id',
  *                 'clientSecret' => 'yandex_client_secret',
  *             ],

@@ -5,26 +5,26 @@
  * @license http://www.yiiframework.com/license/
  */
 
-namespace yii\authclient\widgets;
+namespace vityachis\authclient\widgets;
 
+use vityachis\authclient\ClientInterface;
+use Yii;
 use yii\base\InvalidConfigException;
 use yii\base\Widget;
-use Yii;
+use yii\helpers\Html;
 use yii\helpers\Json;
 use yii\helpers\Url;
-use yii\helpers\Html;
-use yii\authclient\ClientInterface;
 
 /**
  * AuthChoice prints buttons for authentication via various auth clients.
  * It opens a popup window for the client authentication process.
- * By default this widget relies on presence of [[\yii\authclient\Collection]] among application components
+ * By default this widget relies on presence of [[\vityachis\authclient\Collection]] among application components
  * to get auth clients information.
  *
  * Example:
  *
  * ```php
- * <?= yii\authclient\widgets\AuthChoice::widget([
+ * <?= vityachis\authclient\widgets\AuthChoice::widget([
  *     'baseAuthUrl' => ['site/auth']
  * ]); ?>
  * ```
@@ -35,7 +35,7 @@ use yii\authclient\ClientInterface;
  *
  * ```php
  * <?php
- * use yii\authclient\widgets\AuthChoice;
+ * use vityachis\authclient\widgets\AuthChoice;
  * ?>
  * <?php $authAuthChoice = AuthChoice::begin([
  *     'baseAuthUrl' => ['site/auth']
@@ -55,7 +55,7 @@ use yii\authclient\ClientInterface;
  *  - widget: array, configuration for the widget, which should be used to render a client link;
  *    such widget should be a subclass of [[AuthChoiceItem]].
  *
- * @see \yii\authclient\AuthAction
+ * @see \vityachis\authclient\AuthAction
  *
  * @property array $baseAuthUrl Base auth URL configuration. This property is read-only.
  * @property ClientInterface[] $clients Auth providers. This property is read-only.
@@ -103,7 +103,6 @@ class AuthChoice extends Widget
      */
     private $_clients;
 
-
     /**
      * @param ClientInterface[] $clients auth providers
      */
@@ -150,7 +149,7 @@ class AuthChoice extends Widget
      */
     protected function defaultClients()
     {
-        /* @var $collection \yii\authclient\Collection */
+        /* @var $collection \vityachis\authclient\Collection */
         $collection = Yii::$app->get($this->clientCollection);
 
         return $collection->getClients();
@@ -165,7 +164,7 @@ class AuthChoice extends Widget
         $baseAuthUrl = [
             Yii::$app->controller->getRoute()
         ];
-        $params = Yii::$app->getRequest()->getQueryParams();
+        $params      = Yii::$app->getRequest()->getQueryParams();
         unset($params[$this->clientIdGetParamName]);
         $baseAuthUrl = array_merge($baseAuthUrl, $params);
 
@@ -204,6 +203,7 @@ class AuthChoice extends Widget
                     $htmlOptions['data-popup-height'] = $viewOptions['popupHeight'];
                 }
             }
+
             return Html::a($text, $this->createClientUrl($client), $htmlOptions);
         }
 
@@ -217,8 +217,9 @@ class AuthChoice extends Widget
             throw new InvalidConfigException('Item widget class must be subclass of "' . AuthChoiceItem::className() . '"');
         }
         unset($widgetConfig['class']);
-        $widgetConfig['client'] = $client;
+        $widgetConfig['client']     = $client;
         $widgetConfig['authChoice'] = $this;
+
         return $widgetClass::widget($widgetConfig);
     }
 
@@ -229,8 +230,8 @@ class AuthChoice extends Widget
      */
     public function createClientUrl($client)
     {
-        $this->autoRender = false;
-        $url = $this->getBaseAuthUrl();
+        $this->autoRender                 = false;
+        $url                              = $this->getBaseAuthUrl();
         $url[$this->clientIdGetParamName] = $client->getId();
 
         return Url::to($url);
@@ -246,6 +247,7 @@ class AuthChoice extends Widget
         foreach ($this->getClients() as $externalService) {
             $items[] = Html::tag('li', $this->clientLink($externalService));
         }
+
         return Html::tag('ul', implode('', $items), ['class' => 'auth-clients']);
     }
 
@@ -281,6 +283,7 @@ class AuthChoice extends Widget
             $content .= $this->renderMainContent();
         }
         $content .= Html::endTag('div');
+
         return $content;
     }
 }

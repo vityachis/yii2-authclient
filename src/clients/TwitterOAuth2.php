@@ -5,9 +5,9 @@
  * @license http://www.yiiframework.com/license/
  */
 
-namespace yii\authclient\clients;
+namespace vityachis\authclient\clients;
 
-use yii\authclient\OAuth2;
+use vityachis\authclient\OAuth2;
 
 /**
  * TwitterOAuth2 allows authentication via Twitter OAuth 2.

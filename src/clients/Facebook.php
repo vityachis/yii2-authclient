@@ -5,10 +5,10 @@
  * @license http://www.yiiframework.com/license/
  */
 
-namespace yii\authclient\clients;
+namespace vityachis\authclient\clients;
 
-use yii\authclient\OAuth2;
-use yii\authclient\OAuthToken;
+use vityachis\authclient\OAuth2;
+use vityachis\authclient\OAuthToken;
 
 /**
  * Facebook allows authentication via Facebook OAuth.
@@ -23,10 +23,10 @@ use yii\authclient\OAuthToken;
  * ```php
  * 'components' => [
  *     'authClientCollection' => [
- *         'class' => 'yii\authclient\Collection',
+ *         'class' => 'vityachis\authclient\Collection',
  *         'clients' => [
  *             'facebook' => [
- *                 'class' => 'yii\authclient\clients\Facebook',
+ *                 'class' => 'vityachis\authclient\clients\Facebook',
  *                 'clientId' => 'facebook_client_id',
  *                 'clientSecret' => 'facebook_client_secret',
  *             ],

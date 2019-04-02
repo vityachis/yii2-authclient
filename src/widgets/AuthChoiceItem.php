@@ -5,7 +5,7 @@
  * @license http://www.yiiframework.com/license/
  */
 
-namespace yii\authclient\widgets;
+namespace vityachis\authclient\widgets;
 
 use yii\base\Widget;
 
@@ -21,7 +21,7 @@ use yii\base\Widget;
 class AuthChoiceItem extends Widget
 {
     /**
-     * @var \yii\authclient\ClientInterface auth client instance.
+     * @var \vityachis\authclient\ClientInterface auth client instance.
      */
     public $client;
     /**

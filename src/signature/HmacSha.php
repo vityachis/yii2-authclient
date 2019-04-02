@@ -5,7 +5,7 @@
  * @license http://www.yiiframework.com/license/
  */
 
-namespace yii\authclient\signature;
+namespace vityachis\authclient\signature;
 
 use yii\base\NotSupportedException;
 

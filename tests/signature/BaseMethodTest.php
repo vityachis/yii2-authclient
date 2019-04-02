@@ -8,11 +8,11 @@ class BaseMethodTest extends TestCase
 {
     /**
      * Creates test signature method instance.
-     * @return \yii\authclient\signature\BaseMethod
+     * @return \vityachis\authclient\signature\BaseMethod
      */
     protected function createTestSignatureMethod()
     {
-        $signatureMethod = $this->getMockBuilder('\yii\authclient\signature\BaseMethod')
+        $signatureMethod = $this->getMockBuilder('\vityachis\authclient\signature\BaseMethod')
             ->setMethods(['getName', 'generateSignature'])
             ->getMock();
         $signatureMethod->expects($this->any())->method('getName')->will($this->returnValue('testMethodName'));

@@ -2,7 +2,7 @@
 
 namespace yiiunit\extensions\authclient;
 
-use yii\authclient\SessionStateStorage;
+use vityachis\authclient\SessionStateStorage;
 use yiiunit\extensions\authclient\data\Session;
 
 class SessionStateStorageTest extends TestCase

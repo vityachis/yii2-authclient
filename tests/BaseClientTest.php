@@ -2,8 +2,8 @@
 
 namespace yiiunit\extensions\authclient;
 
-use yii\authclient\BaseClient;
-use yii\authclient\SessionStateStorage;
+use vityachis\authclient\BaseClient;
+use vityachis\authclient\SessionStateStorage;
 
 class BaseClientTest extends TestCase
 {

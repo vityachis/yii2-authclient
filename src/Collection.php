@@ -5,11 +5,11 @@
  * @license http://www.yiiframework.com/license/
  */
 
-namespace yii\authclient;
+namespace vityachis\authclient;
 
+use Yii;
 use yii\base\Component;
 use yii\base\InvalidParamException;
-use Yii;
 
 /**
  * Collection is a storage for all auth clients in the application.
@@ -19,15 +19,15 @@ use Yii;
  * ```php
  * 'components' => [
  *     'authClientCollection' => [
- *         'class' => 'yii\authclient\Collection',
+ *         'class' => 'vityachis\authclient\Collection',
  *         'clients' => [
  *             'google' => [
- *                 'class' => 'yii\authclient\clients\Google',
+ *                 'class' => 'vityachis\authclient\clients\Google',
  *                 'clientId' => 'google_client_id',
  *                 'clientSecret' => 'google_client_secret',
  *              ],
  *             'facebook' => [
- *                 'class' => 'yii\authclient\clients\Facebook',
+ *                 'class' => 'vityachis\authclient\clients\Facebook',
  *                 'clientId' => 'facebook_client_id',
  *                 'clientSecret' => 'facebook_client_secret',
  *             ],
@@ -55,7 +55,6 @@ class Collection extends Component
      * @var array list of Auth clients with their configuration in format: 'clientId' => [...]
      */
     private $_clients = [];
-
 
     /**
      * @param array $clients list of auth clients

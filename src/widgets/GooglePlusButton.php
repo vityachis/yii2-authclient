@@ -5,9 +5,9 @@
  * @license http://www.yiiframework.com/license/
  */
 
-namespace yii\authclient\widgets;
+namespace vityachis\authclient\widgets;
 
-use yii\authclient\clients\GoogleHybrid;
+use vityachis\authclient\clients\GoogleHybrid;
 use yii\base\InvalidConfigException;
 use yii\helpers\Html;
 use yii\helpers\Url;

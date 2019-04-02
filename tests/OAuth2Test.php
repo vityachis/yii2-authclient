@@ -2,7 +2,7 @@
 
 namespace yiiunit\extensions\authclient;
 
-use yii\authclient\OAuth2;
+use vityachis\authclient\OAuth2;
 
 class OAuth2Test extends TestCase
 {

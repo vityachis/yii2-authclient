@@ -2,9 +2,9 @@
 
 namespace yiiunit\extensions\authclient;
 
-use yii\authclient\OAuth1;
-use yii\authclient\signature\BaseMethod;
-use yii\authclient\OAuthToken;
+use vityachis\authclient\OAuth1;
+use vityachis\authclient\OAuthToken;
+use vityachis\authclient\signature\BaseMethod;
 
 class OAuth1Test extends TestCase
 {

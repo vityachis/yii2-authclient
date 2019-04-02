@@ -5,9 +5,9 @@
  * @license http://www.yiiframework.com/license/
  */
 
-namespace yii\authclient\clients;
+namespace vityachis\authclient\clients;
 
-use yii\authclient\OAuth2;
+use vityachis\authclient\OAuth2;
 
 /**
  * GitHub allows authentication via GitHub OAuth.
@@ -19,10 +19,10 @@ use yii\authclient\OAuth2;
  * ```php
  * 'components' => [
  *     'authClientCollection' => [
- *         'class' => 'yii\authclient\Collection',
+ *         'class' => 'vityachis\authclient\Collection',
  *         'clients' => [
  *             'github' => [
- *                 'class' => 'yii\authclient\clients\GitHub',
+ *                 'class' => 'vityachis\authclient\clients\GitHub',
  *                 'clientId' => 'github_client_id',
  *                 'clientSecret' => 'github_client_secret',
  *             ],

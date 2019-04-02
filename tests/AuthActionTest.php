@@ -2,7 +2,7 @@
 
 namespace yiiunit\extensions\authclient;
 
-use yii\authclient\AuthAction;
+use vityachis\authclient\AuthAction;
 
 class AuthActionTest extends TestCase
 {

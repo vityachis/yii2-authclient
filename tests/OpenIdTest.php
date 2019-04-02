@@ -2,7 +2,7 @@
 
 namespace yiiunit\extensions\authclient;
 
-use yii\authclient\OpenId;
+use vityachis\authclient\OpenId;
 
 class OpenIdTest extends TestCase
 {

@@ -2,9 +2,9 @@
 
 namespace yiiunit\extensions\authclient;
 
-use yii\authclient\signature\PlainText;
-use yii\authclient\OAuthToken;
-use yii\authclient\BaseOAuth;
+use vityachis\authclient\BaseOAuth;
+use vityachis\authclient\OAuthToken;
+use vityachis\authclient\signature\PlainText;
 use yii\httpclient\Client;
 
 class BaseOAuthTest extends TestCase
@@ -105,7 +105,7 @@ class BaseOAuthTest extends TestCase
         $this->assertEquals($oauthToken['token'], $oauthClient->getAccessToken()->getToken(), 'Unable to setup token as config!');
 
         $oauthSignatureMethod = [
-            'class' => 'yii\authclient\signature\PlainText'
+            'class' => 'vityachis\authclient\signature\PlainText',
         ];
         $oauthClient->setSignatureMethod($oauthSignatureMethod);
         $returnedSignatureMethod = $oauthClient->getSignatureMethod();

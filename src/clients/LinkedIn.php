@@ -5,11 +5,11 @@
  * @license http://www.yiiframework.com/license/
  */
 
-namespace yii\authclient\clients;
+namespace vityachis\authclient\clients;
 
-use yii\authclient\OAuth2;
-use yii\web\HttpException;
+use vityachis\authclient\OAuth2;
 use Yii;
+use yii\web\HttpException;
 
 /**
  * LinkedIn allows authentication via LinkedIn OAuth.
@@ -21,10 +21,10 @@ use Yii;
  * ```php
  * 'components' => [
  *     'authClientCollection' => [
- *         'class' => 'yii\authclient\Collection',
+ *         'class' => 'vityachis\authclient\Collection',
  *         'clients' => [
  *             'linkedin' => [
- *                 'class' => 'yii\authclient\clients\LinkedIn',
+ *                 'class' => 'vityachis\authclient\clients\LinkedIn',
  *                 'clientId' => 'linkedin_client_id',
  *                 'clientSecret' => 'linkedin_client_secret',
  *             ],

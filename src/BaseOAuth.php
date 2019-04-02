@@ -5,11 +5,11 @@
  * @license http://www.yiiframework.com/license/
  */
 
-namespace yii\authclient;
+namespace vityachis\authclient;
 
+use Yii;
 use yii\base\Exception;
 use yii\base\InvalidParamException;
-use Yii;
 use yii\httpclient\Request;
 
 /**
@@ -67,7 +67,6 @@ abstract class BaseOAuth extends BaseClient
      */
     private $_signatureMethod = [];
 
-
     /**
      * @param string $returnUrl return URL
      */
@@ -84,6 +83,7 @@ abstract class BaseOAuth extends BaseClient
         if ($this->_returnUrl === null) {
             $this->_returnUrl = $this->defaultReturnUrl();
         }
+
         return $this->_returnUrl;
     }
 
@@ -143,7 +143,7 @@ abstract class BaseOAuth extends BaseClient
     public function setHttpClient($httpClient)
     {
         if (is_object($httpClient)) {
-            $httpClient = clone $httpClient;
+            $httpClient          = clone $httpClient;
             $httpClient->baseUrl = $this->apiBaseUrl;
         }
         parent::setHttpClient($httpClient);
@@ -154,8 +154,9 @@ abstract class BaseOAuth extends BaseClient
      */
     protected function createHttpClient($reference)
     {
-        $httpClient = parent::createHttpClient($reference);
+        $httpClient          = parent::createHttpClient($reference);
         $httpClient->baseUrl = $this->apiBaseUrl;
+
         return $httpClient;
     }
 
@@ -174,8 +175,8 @@ abstract class BaseOAuth extends BaseClient
     protected function defaultRequestOptions()
     {
         return [
-            'userAgent' => Yii::$app->name . ' OAuth ' . $this->version . ' Client',
-            'timeout' => 30,
+            'userAgent'     => Yii::$app->name . ' OAuth ' . $this->version . ' Client',
+            'timeout'       => 30,
             'sslVerifyPeer' => false,
         ];
     }
@@ -190,6 +191,7 @@ abstract class BaseOAuth extends BaseClient
         if (!array_key_exists('class', $signatureMethodConfig)) {
             $signatureMethodConfig['class'] = signature\HmacSha1::className();
         }
+
         return Yii::createObject($signatureMethodConfig);
     }
 
@@ -203,6 +205,7 @@ abstract class BaseOAuth extends BaseClient
         if (!array_key_exists('class', $tokenConfig)) {
             $tokenConfig['class'] = OAuthToken::className();
         }
+
         return Yii::createObject($tokenConfig);
     }
 
@@ -240,6 +243,7 @@ abstract class BaseOAuth extends BaseClient
             }
             $url .= http_build_query($params, '', '&', PHP_QUERY_RFC3986);
         }
+
         return $url;
     }
 
@@ -266,6 +270,7 @@ abstract class BaseOAuth extends BaseClient
                 $token = $this->refreshAccessToken($token);
             }
         }
+
         return $token;
     }
 
@@ -281,6 +286,7 @@ abstract class BaseOAuth extends BaseClient
     {
         $request = $this->createRequest();
         $request->on(Request::EVENT_BEFORE_SEND, [$this, 'beforeApiRequestSend']);
+
         return $request;
     }
 

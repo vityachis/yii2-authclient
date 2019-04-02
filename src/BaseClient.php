@@ -5,7 +5,7 @@
  * @license http://www.yiiframework.com/license/
  */
 
-namespace yii\authclient;
+namespace vityachis\authclient;
 
 use Yii;
 use yii\base\Component;
@@ -94,7 +94,7 @@ abstract class BaseClient extends Component implements ClientInterface
     /**
      * @var StateStorageInterface|array|string state storage to be used.
      */
-    private $_stateStorage = 'yii\authclient\SessionStateStorage';
+    private $_stateStorage = 'vityachis\authclient\SessionStateStorage';
 
 
     /**

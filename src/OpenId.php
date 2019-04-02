@@ -5,10 +5,10 @@
  * @license http://www.yiiframework.com/license/
  */
 
-namespace yii\authclient;
+namespace vityachis\authclient;
 
-use yii\base\Exception;
 use Yii;
+use yii\base\Exception;
 
 /**
  * OpenId provides a simple interface for OpenID (1.1 and 2.0) authentication.
@@ -17,7 +17,7 @@ use Yii;
  * Usage:
  *
  * ```php
- * use yii\authclient\OpenId;
+ * use vityachis\authclient\OpenId;
  *
  * $client = new OpenId();
  * $client->authUrl = 'https://open.id.provider.url'; // Setup provider endpoint

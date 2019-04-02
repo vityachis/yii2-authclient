@@ -5,18 +5,18 @@
  * @license http://www.yiiframework.com/license/
  */
 
-namespace yii\authclient;
+namespace vityachis\authclient;
 
+use Yii;
 use yii\base\Action;
 use yii\base\Exception;
 use yii\base\InvalidConfigException;
 use yii\base\NotSupportedException;
 use yii\di\Instance;
 use yii\helpers\Url;
-use yii\web\Response;
 use yii\web\HttpException;
 use yii\web\NotFoundHttpException;
-use Yii;
+use yii\web\Response;
 use yii\web\User;
 
 /**
@@ -32,7 +32,7 @@ use yii\web\User;
  *     {
  *         return [
  *             'auth' => [
- *                 'class' => 'yii\authclient\AuthAction',
+ *                 'class' => 'vityachis\authclient\AuthAction',
  *                 'successCallback' => [$this, 'successCallback'],
  *             ],
  *         ]
@@ -50,7 +50,7 @@ use yii\web\User;
  * This action handles the redirection and closing of popup window correctly.
  *
  * @see Collection
- * @see \yii\authclient\widgets\AuthChoice
+ * @see \vityachis\authclient\widgets\AuthChoice
  *
  * @property string $cancelUrl Cancel URL.
  * @property string $successUrl Successful URL.
@@ -124,7 +124,6 @@ class AuthAction extends Action
      * @var string the redirect url after unsuccessful authorization (e.g. user canceled).
      */
     private $_cancelUrl;
-
 
     /**
      * @inheritdoc
@@ -200,7 +199,7 @@ class AuthAction extends Action
     {
         $clientId = Yii::$app->getRequest()->getQueryParam($this->clientIdGetParamName);
         if (!empty($clientId)) {
-            /* @var $collection \yii\authclient\Collection */
+            /* @var $collection \vityachis\authclient\Collection */
             $collection = Yii::$app->get($this->clientCollection);
             if (!$collection->hasClient($clientId)) {
                 throw new NotFoundHttpException("Unknown auth client '{$clientId}'");
@@ -287,11 +286,11 @@ class AuthAction extends Action
         }
 
         $viewData = [
-            'url' => $url,
+            'url'             => $url,
             'enforceRedirect' => $enforceRedirect,
         ];
 
-        $response = Yii::$app->getResponse();
+        $response          = Yii::$app->getResponse();
         $response->content = Yii::$app->getView()->renderFile($viewFile, $viewData);
 
         return $response;
@@ -307,6 +306,7 @@ class AuthAction extends Action
         if ($url === null) {
             $url = $this->getSuccessUrl();
         }
+
         return $this->redirect($url);
     }
 
@@ -320,6 +320,7 @@ class AuthAction extends Action
         if ($url === null) {
             $url = $this->getCancelUrl();
         }
+
         return $this->redirect($url, false);
     }
 
@@ -333,10 +334,11 @@ class AuthAction extends Action
     protected function authOpenId($client)
     {
         $request = Yii::$app->getRequest();
-        $mode = $request->get('openid_mode', $request->post('openid_mode'));
+        $mode    = $request->get('openid_mode', $request->post('openid_mode'));
 
         if (empty($mode)) {
             $url = $client->buildAuthUrl();
+
             return Yii::$app->getResponse()->redirect($url);
         }
 
@@ -371,6 +373,7 @@ class AuthAction extends Action
         if (($oauthToken = $request->get('oauth_token', $request->post('oauth_token'))) !== null) {
             // Upgrade to access token.
             $client->fetchAccessToken($oauthToken);
+
             return $this->authSuccess($client);
         }
 
@@ -378,6 +381,7 @@ class AuthAction extends Action
         $requestToken = $client->fetchRequestToken();
         // Get authorization URL.
         $url = $client->buildAuthUrl($requestToken, $authUrlParams);
+
         // Redirect to authorization URL.
         return Yii::$app->getResponse()->redirect($url);
     }
@@ -416,10 +420,12 @@ class AuthAction extends Action
             if (!empty($token)) {
                 return $this->authSuccess($client);
             }
+
             return $this->authCancel($client);
         }
 
         $url = $client->buildAuthUrl($authUrlParams);
+
         return Yii::$app->getResponse()->redirect($url);
     }
 }

@@ -5,7 +5,7 @@
  * @license http://www.yiiframework.com/license/
  */
 
-namespace yii\authclient\widgets;
+namespace vityachis\authclient\widgets;
 
 use yii\web\AssetBundle;
 
@@ -19,12 +19,12 @@ use yii\web\AssetBundle;
  */
 class AuthChoiceAsset extends AssetBundle
 {
-    public $sourcePath = '@yii/authclient/assets';
-    public $js = [
+    public $sourcePath = '@vityachis/authclient/assets';
+    public $js         = [
         'authchoice.js',
     ];
-    public $depends = [
-        'yii\authclient\widgets\AuthChoiceStyleAsset',
+    public $depends    = [
+        'vityachis\authclient\widgets\AuthChoiceStyleAsset',
         'yii\web\YiiAsset',
     ];
 }

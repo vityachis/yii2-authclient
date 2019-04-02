@@ -2,7 +2,7 @@
 
 namespace yiiunit\extensions\authclient;
 
-use yii\authclient\Collection;
+use vityachis\authclient\Collection;
 use yiiunit\extensions\authclient\data\TestClient;
 
 class CollectionTest extends TestCase

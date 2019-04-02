@@ -2,7 +2,7 @@
 
 namespace yiiunit\extensions\authclient\data;
 
-use yii\authclient\BaseClient;
+use vityachis\authclient\BaseClient;
 
 /**
  * Mock for the Auth client.
