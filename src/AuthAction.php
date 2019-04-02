@@ -221,11 +221,11 @@ class AuthAction extends Action
      */
     protected function auth($client, $authUrlParams = [])
     {
-        if ($client instanceof OAuth2) {
+        if ($client instanceof OAuth2 || yii\authclient\OAuth2) {
             return $this->authOAuth2($client, $authUrlParams);
-        } elseif ($client instanceof OAuth1) {
+        } elseif ($client instanceof OAuth1 || yii\authclient\OAuth1) {
             return $this->authOAuth1($client, $authUrlParams);
-        } elseif ($client instanceof OpenId) {
+        } elseif ($client instanceof OpenId || yii\authclient\OpenId) {
             return $this->authOpenId($client);
         }
 
